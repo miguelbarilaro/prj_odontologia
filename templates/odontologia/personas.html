@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo_pagina%} Listado de personas {% endblock %}
+{% block titulo_principal %}Consultorio odontologico {% endblock %}
+{% block titulo_secundario %}Listado de personas {% endblock %}
+{% block principal %}
+        <div id="wrapper" class="toggled">
+            <header id="head" class="secondary"></header>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Apellido</th>
+                                <th>Nombre</th>
+                                <th>Nº de Documento</th>
+                                <th>Localidad</th>
+                                <th>MODIFICAR</th>
+                                <th>ELIMINAR</th>
+                            </tr>
+                        </thead>
+                        {% for persona in personas %}
+                            <tr>
+                                <td>{{ persona.apellido }}</td>
+                                <td>{{ persona.nombre }}</td>
+                                <td>{{ persona.num_doc }}</td>
+                                <td>{{ persona.localidad }}</td>
+                                <td><a href="{% url 'modificar_persona' persona.num_doc %}" ><img src="{{ STATIC_URL }}static/img/editar.png"></a> </td>
+                                <td><a href="{% url 'eliminar_persona' persona.num_doc %}" ><img src="{% static 'img/eliminar.png' %}"></a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+        </div>
+{% endblock %}

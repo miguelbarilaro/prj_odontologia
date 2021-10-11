@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obra Social</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}" media="screen">
+</head>
+<body>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" novalidate="">
+            {% csrf_token %}
+            <h2>Obra Social</h2>
+            <div class="col-sm-5 maincontent">
+                <div class="row">
+                    <div class="col-xs-2">
+                        {{ form.nombreOS.label }} {{ form.nombreOS }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        {{ form.cuit.label }} {{ form.cuit }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        {{ form.direccion.label }} {{ form.direccion }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-2">
+                        {{ form.disponible.label }} {{ form.disponible }}
+                    </div>
+                </div>
+                <input type="submit" name="submit" value="Grabar" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

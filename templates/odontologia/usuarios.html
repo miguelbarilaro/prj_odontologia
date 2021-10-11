@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de usuarios</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" >
+</head>
+    <body>
+        <div id="wrapper" class="toggled">
+            <header id="head" class="secondary"></header>
+            <div class="container">
+                <div class="row">
+                    <article class="col-sm-8 maincontent">
+                        <header class="page-header">
+                            <h1>Consultorio Odontologico</h1>
+                        </header>
+                        <h3>Listado de Usuarios</h3>
+                    </article>
+                    <table class="table table-dark">
+                        <thead>
+                            <tr>
+                                <th>Apellido</th>
+                                <th>Nombre</th>
+                                <th>DNI</th>
+                                <th>Usuario</th>
+                                <th>MODIFICAR</th>
+                            </tr>
+                        </thead>
+                        {% for usuario in usuarios %}
+                            <tr>
+                                <td>{{ usuario.persona.apellido }} </td>
+                                <td>{{ usuario.persona.nombre }} </td>
+                                <td>{{ usuario.prsona.num_doc }}</td>
+                                <td>{{ usuario.nombre_usuario }} </td>
+                                <td><a href="{% url 'modificar_usuario' usuario.persona.num_doc %}"><img src="{% static 'img/editar.png' %}"></a> </td>
+
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

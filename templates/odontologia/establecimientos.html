@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Establecimientos</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div id="wrapper" class="toggled">
+            <header id="head" class="secondary"></header>
+            <div class="container">
+                <a href="nuevo_establecimiento" class="btn btn-action">Nueva</a>
+                <div class="row">
+                    <article class="col-sm-8 maincontent">
+                        <header class="page-header">
+                            <h1>Consultorio Odontologico</h1>
+                        </header>
+                        <h3>Listado de establecimientos</h3>
+                    </article>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Id</th>
+                                <th>Direccion</th>
+                                <th>Localidad</th>
+                                <th>Telefono</th>
+                                <th>E-mail</th>
+                                <th>Web</th>
+                                <th>MODIFICAR</th>
+                                <th>ELIMINAR</th>
+                            </tr>
+                        </thead>
+                        {% for establecimiento in establecimientos %}
+                            <tr>
+                                <td>{{ establecimiento.nombre }}</td>
+                                <td>{{ establecimiento.id }}</td>
+                                <td>{{ establecimiento.direccion }}</td>
+                                <td>{{ establecimiento.localidad }}</td>
+                                <td>{{ establecimiento.telefono }}</td>
+                                <td>{{ establecimiento.email }}</td>
+                                <td>{{ establecimiento.web }}</td>
+                                <td><a href="{% url 'modificar_establecimiento' establecimiento.id %}" ><img src="{{ STATIC_URL }}static/img/editar.png"></a> </td>
+                                <td><a href="{% url 'eliminar_establecimiento' establecimiento.id %}" ><img src="{% static 'img/eliminar.png' %}"></a></td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

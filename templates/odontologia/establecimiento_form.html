@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Establecimiento</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.css' %}" media="screen">
+</head>
+<body>
+    <div class="container">
+            <form method="post" enctype="multipart/form-data" novalidate="">
+                {% csrf_token %}
+                <h2>Establecimiento</h2>
+                <div class="col-sm-5 maincontent">
+                    <div class="row">
+                        <div class="col-xs-2">
+                        {{ form.nombre.label }} {{ form.nombre }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                        {{ form.id.label }} {{ form.id }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            {{ form.direccion.label }} {{ form.direccion }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            {{ form.localidad.label }} {{ form.localidad }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            {{ form.telefono.label }} {{ form.telefono }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            {{ form.email.label }} {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2">
+                            {{ form.web.label }} {{ form.web }}
+                        </div>
+                    </div>
+                    <input type="submit" name="submit" value="Grabar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+</body>
+</html>
