@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titulo_pagina %} Administración de Localidades {% endblock %}
+{% block titulo_principal %} Carga/Modificación {% endblock %}
+{% block principal %}
+
+    <form method="post" enctype="multipart/form-data" novalidate="">
+        {% csrf_token %}
+        <h2>Localidad</h2>
+        <div class="col-sm-5 maincontent">
+            <div class="row">
+                <div class="col-xs-2">
+                    {{ form.nombre.label }} {{ form.nombre }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                    {{ form.cp.label }} {{ form.cp }}
+                </div>
+            </div>
+             </br>
+            <input type="submit" name="submit" value="Grabar" class="btn btn-primary">
+        </div>
+    </form>
+{% endblock %}
