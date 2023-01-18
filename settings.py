@@ -23,16 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m$*=e0)k40g4@9jmnxam21)#)a8&w8aurg_qzx4lhlp9e+$^iz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'your_deployed_host_url' ]
+ALLOWED_HOSTS = ["miguelbarilaro.pythonanywhere.com"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'dal',
-    'dal_select2',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,11 +76,6 @@ WSGI_APPLICATION = 'prj_odontologia.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.misql',
-        # 'HOST': 'miguelbarilaro.mysql.pythonanywhere-services.com',
-        # 'NAME': 'miguelbarilaro$default',
-        # 'USER': 'miguelbarilaro',
-        # 'PASSWORD': 'Bari0204',
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'odontologia_db',
         'USER': 'adm_odonto',
@@ -130,7 +123,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 STATICFILES_DIRS = [BASE_DIR / 'statics']
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
